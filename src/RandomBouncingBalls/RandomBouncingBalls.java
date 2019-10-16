@@ -55,8 +55,8 @@ public class RandomBouncingBalls extends GraphicsApp {
     }
 
     private void drawBall(RandomBall ball) {
-        ball.checkWallCollision(CANVAS_WIDTH, CANVAS_HEIGHT);
         ball.update();
+        ball.checkWallCollision(CANVAS_WIDTH, CANVAS_HEIGHT);
         ball.draw();
     }
 }

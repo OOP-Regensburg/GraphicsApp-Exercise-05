@@ -29,7 +29,7 @@ public class RandomBall {
     }
 
     private void initBall(int canvasWidth, int canvasHeight) {
-        int diameter = getRandomBoundedInt(MIN_DIAMETER, MIN_DIAMETER);
+        int diameter = getRandomBoundedInt(MIN_DIAMETER, MAX_DIAMETER);
         int lowerXLimit = diameter / 2;
         int upperXLimit = canvasWidth - (diameter / 2);
         int lowerYLimit = diameter / 2;
@@ -55,14 +55,14 @@ public class RandomBall {
     }
 
     /**
-     * Checks if the ball is colliding with on of the inner walls of a bounding
-     * box, given by the two parameters. Ball and bounding box are using the
-     * same coordinate system.
+     * Überprüft, ob der Ball mit dem durch die Parameter gegebenen
+     * Begrenzungsrahmen kollidiert. Der Ball und der Begrenzungsrahmen
+     * nutzen das gleiche Koordinatensystem.
      *
-     * @param boundingBoxWidth
-     * @param boundingBoxHeight
+     * @param boundingBoxWidth Breite des Begrenzungsrahmens
+     * @param boundingBoxHeight Höhe des Begrenzungsrahmens
      */
-    public void checkWallCollision(int boundingBoxWidth, int boundingBoxHeight) {
+    public void checkWallCollision(float boundingBoxWidth, float boundingBoxHeight) {
 
         if (ball.getRightBorder() + Math.abs(dx) >= boundingBoxWidth
                 || ball.getLeftBorder() - Math.abs(dx) <= 0) {
@@ -73,11 +73,10 @@ public class RandomBall {
                 || ball.getTopBorder() - Math.abs(dy) <= 0) {
             handleHorizontalBounce();
         }
-
     }
 
     /**
-     * Handles the case, that the ball collides with the left or right wall
+     * Behandelt den Fall, dass der Ball mit dem linken oder rechten Rand kollidiert
      */
     private void handleVerticalBounce() {
         changeColor();
@@ -85,7 +84,7 @@ public class RandomBall {
     }
 
     /**
-     * Handles the case, that the ball collides with the top or bottom wall
+     * Behandelt den Fall, dass der Ball mit dem oberen oder unteren Rand kollidiert
      */
     private void handleHorizontalBounce() {
         changeColor();
@@ -93,7 +92,7 @@ public class RandomBall {
     }
 
     /**
-     * Changes the color of the circle to a random value
+     * Verändert die Farbe des Balls zufällig
      */
     private void changeColor() {
         Color color = Colors.getRandomColor();
