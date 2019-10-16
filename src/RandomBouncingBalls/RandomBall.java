@@ -28,22 +28,27 @@ public class RandomBall {
         dy = rand.nextFloat() * differenceSpeed + minSpeed;
     }
 
-    private void initBall(int canvasWidth, int canvasHeight) {
-        int diameter = getRandomBoundedInt(MIN_DIAMETER, MAX_DIAMETER);
-        int lowerXLimit = diameter / 2;
-        int upperXLimit = canvasWidth - (diameter / 2);
-        int lowerYLimit = diameter / 2;
-        int upperYLimit = canvasHeight - (diameter / 2);
+    private void initBall(float canvasWidth, float canvasHeight) {
+        float diameter = getRandomBoundedInt(MIN_DIAMETER, MAX_DIAMETER);
+        float lowerXLimit = diameter / 2;
+        float upperXLimit = canvasWidth - (diameter / 2);
+        float lowerYLimit = diameter / 2;
+        float upperYLimit = canvasHeight - (diameter / 2);
 
-        int xPos = getRandomBoundedInt(lowerXLimit, upperXLimit);
-        int yPos = getRandomBoundedInt(lowerYLimit, upperYLimit);
+        float xPos = getRandomBoundedFloat(lowerXLimit, upperXLimit);
+        float yPos = getRandomBoundedFloat(lowerYLimit, upperYLimit);
         Color color = Colors.getRandomColor();
 
-        ball = new Circle(xPos, yPos, diameter, color);
+        ball = new Circle(xPos, yPos, diameter / 2, color);
     }
 
     private int getRandomBoundedInt(int min, int max) {
         return rand.nextInt(max - min) + min;
+    }
+
+    private float getRandomBoundedFloat(float min, float max) {
+        float delta = max - min;
+        return rand.nextFloat() * delta + min;
     }
 
     public void update() {
@@ -66,6 +71,8 @@ public class RandomBall {
 
         if (ball.getRightBorder() + Math.abs(dx) >= boundingBoxWidth
                 || ball.getLeftBorder() - Math.abs(dx) <= 0) {
+            float bla = ball.getRightBorder();
+            float bla2 = ball.getLeftBorder();
             handleVerticalBounce();
         }
 
