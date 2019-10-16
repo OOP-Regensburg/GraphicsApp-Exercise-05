@@ -71,8 +71,6 @@ public class RandomBall {
 
         if (ball.getRightBorder() + Math.abs(dx) >= boundingBoxWidth
                 || ball.getLeftBorder() - Math.abs(dx) <= 0) {
-            float bla = ball.getRightBorder();
-            float bla2 = ball.getLeftBorder();
             handleVerticalBounce();
         }
 
