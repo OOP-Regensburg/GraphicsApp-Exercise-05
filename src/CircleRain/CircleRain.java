@@ -53,10 +53,8 @@ public class CircleRain extends GraphicsApp {
      */
     private void drawCircles() {
         for (int i = 0; i < CIRCLE_COUNT; i++) {
-            for (int j = 0; j < 10; j++) {
-                updateCircle(circles[i], circleSpeeds[i]);
-                circles[i].draw();
-            }
+            updateCircle(circles[i], circleSpeeds[i]);
+            circles[i].draw();
         }
     }
 
