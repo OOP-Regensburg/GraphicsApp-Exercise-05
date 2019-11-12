@@ -1,10 +1,10 @@
-package RandomBouncingBalls;
+package CircleRain;
 
 import de.ur.mi.oop.app.GraphicsApp;
 import de.ur.mi.oop.colors.Color;
 import de.ur.mi.oop.colors.Colors;
 
-public class RandomBouncingBalls extends GraphicsApp {
+public class CircleRain extends GraphicsApp {
 
     /* Private Konstanten */
     private static final int CANVAS_HEIGHT = 800;
